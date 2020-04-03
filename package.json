@@ -1,0 +1,19 @@
+{
+  "name": "coronavirus-status",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/antiafk/coronavirus-presence.git"
+  },
+  "version": "1.0.0",
+  "description": "Shows the status of the new Coronavirus",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "antiafk",
+  "license": "ISC",
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.3",
+    "discord-rpc": "^3.1.0"
+  }
+}
