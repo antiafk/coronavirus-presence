@@ -7,4 +7,4 @@ Shows Coronavirus status in a Rich Presence.
 
 1. Make a clone using `git clone https://github.com/antiafk/coronavirus-presence`.
 2. Go to the folder and type `npm install` (or `yarn install`).
-3. Type `npm run start` (or `yarn start`) to start.
+3. Type `npm run start` (or `yarn run start`) to start.
