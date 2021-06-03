@@ -1,10 +1,11 @@
-const RPC = require("discord-rpc");
+const { Client } = require("discord-rpc");
 const getCases = require("./getCases");
 const { version } = require("../package.json");
 
-const client = new RPC.Client({ transport: 'ipc' });
+let client;
 const clientId = "694203681851047957";
 
+let timer;
 let enabled = false;
 let options;
 let startTime;
@@ -37,7 +38,7 @@ async function updateRP() {
     client.setActivity(activity);
 }
 
-client.on("ready", async () => {
+async function onReady() {
     await updateRP();
 
     timer = setInterval(() => {
@@ -45,20 +46,22 @@ client.on("ready", async () => {
     }, options.updateTime);
 
     enabled = true;
-});
+}
 
 module.exports = {
-    enable: function(config, callback) {
+    enable: function(config) {
         options = config;
+
+        client = new Client({ transport: 'ipc' });
+        client.once("ready", onReady);
 
         return client.login({ clientId });
     },
     disable: function() {
-        if (enabled) {
-            enabled = false;
+        enabled = false;
 
-            clearInterval(timer);
-            client.clearActivity();
-        }
+        if (timer) clearInterval(timer);
+
+        return client.destroy();
     }
 }
