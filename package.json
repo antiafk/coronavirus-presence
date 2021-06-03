@@ -4,7 +4,7 @@
         "type": "git",
         "url": "https://github.com/antiafk/coronavirus-presence.git"
     },
-    "version": "2.0.0",
+    "version": "2.0.1",
     "description": "Shows the status of the Covid-19 on your Discord Rich Presence",
     "main": "index.js",
     "scripts": {
@@ -20,13 +20,13 @@
         "node-fetch": "^2.6.1"
     },
     "devDependencies": {
-        "electron": "^10.4.1",
+        "electron": "^10.4.2",
         "electron-builder": "^22.10.5"
     },
     "build": {
         "appId": "io.github.antiafk.coronavirus-presence",
         "productName": "Coronavirus Presence",
-		"artifactName": "${name}-${platform}-${arch}-${version}.${ext}",
+        "artifactName": "${name}-${platform}-${arch}-${version}.${ext}",
         "asar": "true",
         "directories": {
             "output": "dist"
